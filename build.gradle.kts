@@ -53,4 +53,5 @@ dependencies {
     implementation("com.zaxxer:HikariCP:3.4.2")
     testImplementation("io.ktor:ktor-server-test-host-jvm")
     testImplementation("org.jetbrains.kotlin:kotlin-test-junit:$kotlin_version")
+    implementation("org.mindrot:jbcrypt:0.4")
 }

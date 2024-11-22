@@ -12,8 +12,23 @@ import org.koin.ktor.ext.inject
 fun Application.configureRouting() {
     val userDao by inject<UserDao>()
     install(StatusPages) {
+        status(HttpStatusCode.NotFound) { call, status ->
+            call.respondText(
+                text = "404: The resource you are looking for was not found. 🤷",
+                status = status
+            )
+        }
         exception<Throwable> { call, cause ->
-            call.respondText(text = "500: $cause", status = HttpStatusCode.InternalServerError)
+            call.respondText(
+                text = "500: Server error occurred! Details: ${cause.localizedMessage}",
+                status = HttpStatusCode.InternalServerError
+            )
+        }
+        exception<IllegalArgumentException> { call, cause ->
+            call.respondText(
+                text = "400: Invalid request. Error: ${cause.localizedMessage}",
+                status = HttpStatusCode.BadRequest
+            )
         }
     }
     routing {

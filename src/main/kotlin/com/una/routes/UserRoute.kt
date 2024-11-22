@@ -12,7 +12,7 @@ import kotlin.uuid.Uuid
 
 fun Route.userRoute(userDao: UserDao) {
     route("/user") {
-        get ("/") {
+        get {
             call.respond(userDao.read())
         }
         delete("/{userId}") {
@@ -23,6 +23,10 @@ fun Route.userRoute(userDao: UserDao) {
             val userId = call.extractParameterUserId()
             val user = call.receive<User>()
             call.respond(userDao.update(UUID.fromString(userId), user))
+        }
+        post {
+            val user = call.receive<User>()
+            call.respond(userDao.create(user))
         }
     }
 }

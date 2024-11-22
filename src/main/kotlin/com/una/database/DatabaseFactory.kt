@@ -5,7 +5,7 @@ import com.zaxxer.hikari.HikariDataSource
 
 fun hikari(): HikariDataSource {
     val config = HikariConfig().apply {
-        jdbcUrl = "jdbc:postgresql://localhost:5432/mydb"
+        jdbcUrl = "jdbc:postgresql://localhost:5432/postgres"
         driverClassName = "org.postgresql.Driver"
         username = "postgres"
         password = "postgres"
