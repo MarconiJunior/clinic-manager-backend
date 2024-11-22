@@ -17,4 +17,5 @@ fun Application.module() {
     configureTemplating()
     configureMonitoring()
     configureRouting()
+    configureLogin()
 }
