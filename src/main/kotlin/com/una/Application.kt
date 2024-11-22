@@ -1,5 +1,6 @@
 package com.una
 
+import com.una.plugins.*
 import io.ktor.server.application.*
 
 fun main(args: Array<String>) {

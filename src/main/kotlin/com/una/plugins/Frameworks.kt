@@ -1,5 +1,6 @@
-package com.una
+package com.una.plugins
 
+import com.una.services.HelloService
 import io.ktor.server.application.*
 import org.koin.dsl.module
 import org.koin.ktor.plugin.Koin

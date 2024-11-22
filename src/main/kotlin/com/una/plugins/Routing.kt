@@ -1,4 +1,4 @@
-package com.una
+package com.una.plugins
 
 import io.ktor.http.*
 import io.ktor.server.application.*

@@ -1,4 +1,4 @@
-package com.una
+package com.una.plugins
 
 import io.ktor.serialization.gson.*
 import io.ktor.serialization.kotlinx.json.*
