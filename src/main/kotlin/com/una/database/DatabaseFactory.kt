@@ -1,18 +1,11 @@
 package com.una.database
 
-import org.jetbrains.exposed.sql.Database
 import com.zaxxer.hikari.HikariConfig
 import com.zaxxer.hikari.HikariDataSource
-import org.jetbrains.exposed.sql.transactions.transaction
-import org.koin.dsl.module
 
-val databaseModule = module {
-    single { Database.connect(hikari()) }
-}
-
-private fun hikari(): HikariDataSource {
+fun hikari(): HikariDataSource {
     val config = HikariConfig().apply {
-        jdbcUrl = "localhost:5432"
+        jdbcUrl = "jdbc:postgresql://localhost:5432/mydb"
         driverClassName = "org.postgresql.Driver"
         username = "postgres"
         password = "postgres"
